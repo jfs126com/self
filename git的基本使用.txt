@@ -1,0 +1,15 @@
+在github上new repository(新建仓库)
+在本地项目根目录初始化本地仓库
+
+$ git init  //初始化
+
+$ git status //查看状态是否提交到本地仓库
+
+$ git add .  //提交全部到本地仓库($ git add 文件名  //提交单个文件)
+
+$ git commit -m "提交描述" //描述本次提交的内容
+
+$ git remote add origin http://github.com/jfs126com/项目名.git  
+
+$ git push -u origin master  //push到远程仓库就是github上
+
