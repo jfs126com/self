@@ -7,9 +7,14 @@ $ git status //查看状态是否提交到本地仓库
 
 $ git add .  //提交全部到本地仓库($ git add 文件名  //提交单个文件)
 
-$ git commit -m "提交描述" //描述本次提交的内容
+$ git commit -m  //不加-m是提交   加-m是描述本次提交的内容
 
 $ git remote add origin http://github.com/jfs126com/项目名.git  
 
-$ git push -u origin master  //push到远程仓库就是github上
+$ git push -u origin master  //首次push到远程仓库加-u
+
+
+命令的使用
+
+$ git clone  github上的地址
 
