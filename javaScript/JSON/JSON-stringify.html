@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>json-stringify</title>
+  <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<script>
+  /*
+  * JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串，如果指定了replacer是一个函数，
+  * 则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。
+  *
+  * JSON.stringify(value[, replacer [, space]])
+  *
+  * 返回：对象格式
+  *
+  * */
+  var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%202151330&format=json';
+  $.getJSON(url,function (data) {
+    var city = data.query.results.channel.location.city;
+    var forecast = data.query.results.channel.item.forecast;
+    JSON.stringify(result = {
+      city : city,
+      forecast : forecast
+    },null,' ')
+    document.write(`
+      <div>${result.city}</div>
+    `)
+    for(let data of result.forecast){
+      document.write(`<div>
+      <span>${data.text}</span>
+      <span>${data.low}</span>
+      <span>${data.high}</span>
+      <span>${data.day}</span>
+      <span>${data.date}</span>
+      <span>${data.code}</span>
+      </div>
+    `)
+    }
+  })
+</script>
+</body>
+</html>

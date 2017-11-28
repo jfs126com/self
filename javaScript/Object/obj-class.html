@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>obj-class</title>
+</head>
+<body>
+<script>
+
+  /*function Student(name) {
+    this.name = name;
+  }
+  Student.prototype.hello = function () {
+    console.log('hello '+ this.name)
+  }*/
+  //用class重写
+  class Student{
+    constructor(name){
+      this.name = name;
+    };
+    hello(){
+      console.log('hello '+ this.name);
+    }
+  }
+  var snail = new Student('蜗牛');
+  snail.hello()
+
+  //class继承
+  class InhStudent extends Student{
+    constructor(name,age){
+      super(name);// 记得用super调用父类的构造方法!
+      this.age = age;
+    }
+    getAge(age){
+      console.log('我的年龄是：'+this.age);
+    }
+  }
+  var p = new InhStudent('考拉',18);
+  console.log(p.getAge())
+</script>
+</body>
+</html>

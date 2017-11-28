@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>obj-inherits</title>
+</head>
+<body>
+<script>
+  /*
+  * 原型继承
+  * */
+  function Student(props) {
+    this.name = props.name || 'Unnamed';
+  }
+
+  Student.prototype.hello = function () {
+    console.log('Hello, ' + this.name + '!');
+  }
+
+  /*
+  * 扩展
+  * */
+  function PrimaryStudent(props) {
+    // 调用Student构造函数，绑定this变量:
+    Student.call(this,props);
+    this.grade = props.grade ||  1;
+  }
+
+  // 空函数F()
+  function F() {
+
+  }
+
+  // 把F的原型指向Student.prototype:
+  F.prototype = Student.prototype;
+
+  // 把PrimaryStudent的原型指向一个新的F对象，F对象的原型正好指向Student.prototype:
+  PrimaryStudent.prototype = new F();
+
+  // 把PrimaryStudent原型的构造函数修复为PrimaryStudent:
+  PrimaryStudent.prototype.constructor = PrimaryStudent;
+
+  // 继续在PrimaryStudent原型（就是new F()对象）上定义方法：
+  PrimaryStudent.prototype.getGrade = function () {
+    return this.grade;
+  }
+
+
+  var p = new PrimaryStudent({
+    name:'aa',
+    grade:10
+  });
+  console.log(p.name)
+  console.log(p.grade)
+  p.hello()
+
+  //验证
+  console.log(p.__proto__);//PrimaryStudent.prototype
+  console.log(p.__proto__.__proto__);//Student.prototype
+
+  console.log(p instanceof PrimaryStudent)//true
+  console.log(p instanceof Student)//true
+
+
+
+
+
+  /*
+  * 封装继承函数
+  * */
+  function inherits(Child,Parent) {
+    var F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+  }
+  //构造函数
+  function A(props) {
+    this.name = props.name || 'null'
+  }
+  //构造函数的方法
+  A.prototype.m = function () {
+    console.log('hello'+ this.name)
+  }
+  //扩展一个构造函数
+  function K(props) {
+    A.call(this,props);
+    this.age = props.age || 18;
+  }
+  //实现原型继承
+  inherits(K,A);
+  // 绑定其他方法到K原型:
+  K.prototype.getAge = function () {
+    return this.age;
+  }
+  var o = new K({
+    name:'NIUKO',
+    age:20
+  })
+  console.log(o.m())
+  console.log(o.getAge())
+
+  /*
+  * JavaScript的原型继承实现方式就是：
+  *
+  * 1.定义新的构造函数，并在内部用call()调用希望“继承”的构造函数，并绑定this；
+  *
+  * 2.借助中间函数F实现原型链继承，最好通过封装的inherits函数完成；
+  *
+  * 3.继续在新的构造函数的原型上定义新方法。
+  *
+  * */
+</script>
+</body>
+</html>

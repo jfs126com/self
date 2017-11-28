@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>json-stringify</title>
+  <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<script>
+  /*
+  * JSON.parse() 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。
+  * 提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。
+  * 把字符串转成对象
+  *
+  * JSON.parse(text[, reviver])
+  *
+  * 返回：Object对应给定的JSON文本。
+  *
+  * 若被解析的 JSON 字符串是非法的，则会抛出 一个语法错误 异常。
+  *
+  * */
+  var A = "{  a: 1 , b : 'hello' }";
+  var B = "{  'a': 1 , 'b' : 'hello' }";
+  var C = "{'a':1,'b':'hello'}";
+  var D = '{"a":1,"b":"hello"}';
+  var E = '{ "a" : 1 , "b" : "hello" }';
+  var F = '{ "a" : 1 ,\n  "b" : "hello" }';
+  var G = '{ "a" : 1 , "b" : window.location.href="https://www.baidu.com" }';
+
+  document.write(`
+    ${JSON.parse(D)}<br/>
+    ${JSON.parse(E)}<br/>
+    ${JSON.parse(F)}<br/>
+
+  `)
+</script>
+</body>
+</html>
