@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array-prototype-copyWithin</title>
+</head>
+<body>
+	<script>
+		/*
+			copyWithin() 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，而不修改其大小。
+
+			语法：arr.copyWithin(target)
+						arr.copyWithin(target, start)
+						arr.copyWithin(target, start, end)
+						arr.copyWithin(目标索引, [源开始索引], [结束源索引])
+
+			参数：target （必需）：从该位置开始替换数据。
+						start （可选）：从该位置开始读取数据，默认为 0 。如果为负值，表示倒数。
+						end （可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
+
+			返回值：改变了的数组。
+		*/
+		let arr = ['a','b','c','d','e','f','g','h','i','j','k']
+		document.write(arr.copyWithin(6,2,5));//a,b,c,d,e,f,c,d,e,j,k
+		document.write([1, 2, 3, 4, 5].copyWithin(0, 3, 5))//4,5,3,4,5
+
+	</script>
+</body>
+</html>

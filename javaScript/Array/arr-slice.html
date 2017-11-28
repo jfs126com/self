@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-slice</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+		
+		//slice()就是对应String的substring()版本，它截取Array的部分元素，然后返回一个新的Array
+
+		let fruits = ["Apple","Banana","Orange","Mango","Pear"]
+		let arr = fruits.slice(1,4);//["Banana","Orange","Mango"]
+		let arr1 = fruits.slice(3);//["Mango","Pear"]
+		let isArr = Array.isArray(arr);//true
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${arr}<br/>	
+			${arr1}<br/>	
+			${isArr}<br/>	
+		`
+
+	</script>
+</body>
+</html>

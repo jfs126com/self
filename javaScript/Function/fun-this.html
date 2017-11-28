@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fun-this</title>
+</head>
+<body>
+	<script>
+		let snail = {
+				name:'蜗牛',
+				birth:1986,
+				age:function(){
+					let y = new Date().getFullYear();
+					return y - this.birth;//this指向snail
+				}
+		}
+		console.log(snail.age())
+
+		//重构
+		let snails = {
+				name:'蜗牛',
+				birth:1986,
+				age:function(){
+					var _this = this//this指向snails
+					function getAge(){
+						let y = new Date().getFullYear();
+						return y - _this.birth;//_this指向this
+					}
+					return getAge();
+				}
+		}
+		console.log(snails.age())
+	</script>
+</body>
+</html>

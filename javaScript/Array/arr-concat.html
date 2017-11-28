@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array-prototype-concat</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			concat() 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+
+			语法：var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+			参数：valueN将数组和/或值连接成新数组
+			返回值：新的 Array 实例
+		*/
+		let arr1 = ['a', 'b', 'c'];
+		let arr2 = [1];
+		let arr3 = arr1.concat(arr2,2,4)
+		document.write(arr3)
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>obj-hasOwnProperty</title>
+</head>
+<body>
+	<script>
+		/*hasOwnProperty() 方法会返回一个布尔值，指示对象是否具有指定的属性作为自身（不继承）属性。
+		obj.hasOwnProperty(prop)
+		prop要检测的属性  字符串 名称或者 Symbol。
+		返回值Boolean
+
+		*/
+		var xiaoming = {
+    	name: '小明',
+    	birth: 1990,
+    	school: 'No.1 Middle School',
+    	height: 1.70,
+    	weight: 65,
+    	score: null
+		};
+		console.log('name' in xiaoming)//判断name是不是xiaoming对象的属性
+		console.log('toString' in xiaoming)//这是继承下来的属性
+		console.log(xiaoming.hasOwnProperty('toString'))//false
+		console.log(xiaoming.hasOwnProperty('name'))//true
+	</script>
+</body>
+</html>

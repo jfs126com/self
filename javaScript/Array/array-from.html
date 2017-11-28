@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array-from</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+		//不兼容ie
+		let froms = Array.from('<div>yangwei</div>')//把字符串转成数组
+
+		let s = new Set(["yangwei",window]);
+		console.log(s)
+		let newFrom = Array.from(s);
+		console.log(Array.from(s))
+
+		let arrayLike = {  '0': 'a',  '1': 'b',  '2': 'c',  length: 3  };
+		var arr1 = [].slice.call(arrayLike);//把对象转成数组
+		let arr2 = Array.from(arrayLike);
+		console.log(arr1)
+
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${froms}<br/>
+			${s}<br/>
+			${newFrom}<br/>
+			${arr2}<br/>
+			
+			`
+
+	</script>
+</body>
+</html>

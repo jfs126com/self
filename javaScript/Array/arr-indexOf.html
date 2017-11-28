@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-indexOf</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+
+		let fruits = ["Apple","Banana","Orange","Mango","Pear"]
+		let arr = fruits.indexOf('Orange')//返回索引值，没找到返回-1
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${arr}	
+		`
+
+	</script>
+</body>
+</html>

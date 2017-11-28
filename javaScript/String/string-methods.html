@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>string-methods</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script>
+		//toUpperCase()把一个字符串全部变为大写：
+		var str = "yangwei";
+		
+		//toLowerCase()把一个字符串全部变为小写
+		var str1 = 'HELLO WORD'
+
+		//indexOf()会搜索指定字符串出现的位置,返回索引值
+		var index = str1.indexOf('WO');
+
+		//substring()返回指定索引区间的子串
+		var index1 = str.substring(0,4);//yang,0起始位置，4结束位置的-1
+		var index2 = str.substring(4)//从索引4到结束
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${str.toUpperCase()}<br/>
+			${str1.toLowerCase()}<br/>
+			${index}<br/>
+			${index1}<br/>
+			${index2}<br/>
+
+		`
+	</script>
+</body>
+</html>

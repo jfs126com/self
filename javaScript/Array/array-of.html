@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array-of</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*Array.of() 方法创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。
+
+ 			Array.of() 和 Array 构造函数之间的区别在于处理整数参数：Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个包含 7 个 undefined 元素的数组。
+
+		语法：Array.of(element0[, element1[, ...[, elementN]]])
+ 			*/
+ 			//兼容写法
+ 			if (!Array.of) {
+ 				Array.of=function(){
+ 					return Array.prototype.slice.call(arguments);
+ 				}
+ 			}
+ 			let arr = Array.of(10,52,1,6);
+ 			console.log(arr)//[10, 52, 1, 6]
+	</script>
+</body>
+</html>

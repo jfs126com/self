@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array-isArray</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//isArray()判断是不是数组
+	console.log(Array.isArray([]));//true
+	console.log(Array.isArray([1]));//true
+	console.log(Array.isArray(new Array()));//true
+	// 鲜为人知的事实：其实 Array.prototype 也是一个数组。
+	console.log(Array.isArray(Array.prototype));//true
+	console.log(Array.isArray({ __proto__: Array.prototype }))//false 
+	</script>
+</body>
+</html>

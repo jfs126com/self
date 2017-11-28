@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-splice</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		/*splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素
+		语法：
+		array.splice(start)
+		array.splice(start, deleteCount) 
+		array.splice(start, deleteCount, item1, item2, ...)*/
+
+		let fruits = ["Apple","Banana","Orange","Mango","Pear"]
+		console.log(Object.keys(fruits))//输出数组索引
+
+		//splice在数组中截取某个或多个元素，参数1是索引的开始位置，2是截取几个，返回截取的某段
+		let rmItem = fruits.splice(1,2);
+		console.log(rmItem)
+		console.log(fruits)
+
+		let copyFruits = fruits.slice();//复制一个数组，返回被复制的数组
+		console.log(copyFruits)
+
+
+		var arr = ['a','b','c','d','e','f','g','h','i','j','k']
+		console.log(arr.splice(10))//返回起始位置到结束[f,g,h,i,j,k]
+		console.log(arr.splice(8,2))//返回索引2开始5个元素[c,d,e,f,g]
+		console.log(arr.splice(6,2,'k','j'))//["g", "h"]
+		console.log(arr)//["a", "b", "c", "d", "e", "f", "k", "j"]
+
+
+	</script>
+</body>
+</html>

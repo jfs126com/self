@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fun-closure</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		闭包就是能够读取其他函数内部变量的函数。
+		只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成"定义在一个函数内部的函数"。
+		闭包就是将函数内部和函数外部连接起来的一座桥梁。
+
+		它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+		*/
+		function Fun(){
+			var n = 999;
+			nadd = function (){
+				n+=1;
+			};
+			function f2(){
+				console.log(n)
+			};
+			return f2;
+		}
+		var result = Fun();
+		result()
+		nadd()
+		result()
+
+		var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+						var _this = this
+　　　　　　return function(){
+　　　　　　　　return _this.name;
+　　　　　　};
+　　　　}
+　　};
+		console.log(object.getNameFunc()());
+	</script>
+</body>
+</html>

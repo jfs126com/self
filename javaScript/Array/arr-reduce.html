@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-reduce</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			arr.reduce(callback[, initialValue])
+			reduce()把结果继续和序列的下一个元素做累积计算
+
+		*/
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+		var result = arr.reduce((a,b)=> {return a+b})
+		console.log(result)
+
+
+		//计算1+2+3+...100
+		var arr1=[]
+		for(let i = 1; i<=100; i++){
+			 arr1.push(i);
+			 var results = arr1.reduce((a,b)=>{return a+b})
+		}
+		document.write(arr1+"<br/>")
+		document.write(results)//5050
+
+		//把数组值变为整数
+		let year = [1,9,8,6]
+		var parint = year.reduce((a,b)=> { return a * 10 + b })
+		console.log(parint)
+
+	</script>
+</body>
+</html>

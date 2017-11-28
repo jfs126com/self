@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-filter</title>
+	<style type="text/css">
+		.active:hover{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+		<li>d</li>
+		<li>e</li>
+		<li>f</li>
+		<li>g</li>
+		<li>h</li>
+	</ul>
+	<script type="text/javascript">
+		/*
+		filter()用于把Array的某些元素过滤掉，然后返回剩下的元素。
+
+		和map()类似，Array的filter()也接收一个函数。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。
+		*/
+
+		let li = document.querySelectorAll("ul li")
+		li.forEach(function(key,index){
+			if (index % 2 !=0) {
+				li[index].className = 'active'
+			}
+		})
+
+		var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange','grapes'];
+		var f = fruits.filter(function(ele,index,self){
+			return self.indexOf(ele) === index;//过滤掉相同元素
+		})
+		console.log(fruits)
+		console.log(f)
+	</script>
+</body>
+</html>

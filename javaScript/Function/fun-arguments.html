@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fun-arguments</title>
+</head>
+<body>
+	<script>
+		/*
+			arguments最常用于判断传入参数的个数
+		*/
+		function list(type) {
+		  let result = "<"+type+"l><li>";
+		  let args = Array.prototype.slice.call(arguments,1);
+		  result += args.join("</li><li>");
+		  result += "</li></"+ type +"l>";
+		  return result;
+		}
+		document.write(list("u","One", "Two", "Three"))
+
+
+		function lists() {
+		  let args = Array.prototype.slice.call(arguments);
+		  return args
+		}
+		document.write(lists("One", "Two", "Three")+"<br/>")
+
+	</script>
+</body>
+</html>

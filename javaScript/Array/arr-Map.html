@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map</title>
+</head>
+<body>
+	<script>
+		/*
+			map()把数组转为对象
+		*/
+		var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);
+
+		m.set('admin',66)//添加新的key-value
+		m.set('Bob',99)//重置原有的key-value
+
+		var h = m.has('Tracy')//判断是否有Tracy值存在，返回boolean值
+		console.log(h)
+
+		var g = m.get('Bob')//获取对应的key-value
+		console.log(g)
+
+		m.delete('admin')
+		console.log(m)
+
+		//for...of...
+		for(var [key,value] of m){
+			console.log(key + "=" + value)
+		}
+
+		//forEach
+		m.forEach(function(value,key){
+			console.log(key + "=" + value)
+		})
+
+
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+		console.log(arr.map(String))
+
+		function pow(x) {
+    	return x * x;
+		}
+		console.log(arr.map(pow))//[1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+
+		//首字母大写
+		var p = ['adam', 'LISA', 'barT']
+		let n = p.map((x)=>{
+				x = x.toLowerCase();
+				let f = x.substr(0,1).toUpperCase()
+				return f+x.substr(1);
+			});
+			console.log(n)// ["Adam", "Lisa", "Bart"]
+	</script>
+</body>
+</html>

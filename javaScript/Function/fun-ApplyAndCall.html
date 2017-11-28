@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fun-apply</title>
+</head>
+<body>
+	<script>
+		/*
+			apply()方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+
+			call()方法和apply类似   
+
+			区别在于：apply()把参数打包成Array再传入
+								call()把参数按顺序传入。
+		*/
+		function getAge(){
+			let y = new Date().getFullYear();
+			return y - this.birth;
+		}
+		let snail = {
+				name:'蜗牛',
+				birth:1986,
+				age:getAge
+		}
+		
+		console.log(snail.age())
+		console.log(getAge.apply(snail,[]))
+
+		let snails = {
+				name:'蜗牛',
+				birth:1986,
+				age:function(){
+					function getAge(){
+						let y = new Date().getFullYear();
+						return y - this.birth;
+					}
+					//return getAge.call(snails);
+					return getAge.apply(snails,[]);
+				}
+		}
+		console.log(snail.age())
+
+
+
+
+		var count = 0;
+		var oldParseInt = parseInt; // 保存原函数
+		
+		window.parseInt = function () {
+		    count += 1;
+		    return oldParseInt.apply(null, arguments); // 调用原函数
+		};
+		console.log(parseInt(12.3))
+		console.log(parseInt(14))
+		console.log(parseInt(18.03))
+		console.log(count)
+
+
+		var counts = 0;
+		var oldAlert = alert;
+		window.alert = function (){
+			counts += 1;
+			return oldAlert.apply(null,arguments);
+		}
+		alert(1)
+		alert(2)
+		alert(3)
+		console.log(counts)
+	</script>
+</body>
+</html>

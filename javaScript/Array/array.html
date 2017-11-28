@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+
+		let fruits = ["Apple","Banana"];//数组
+
+		let first = fruits[0];//返回数组第一个值
+
+		let last = fruits[fruits.length - 1]//返回数组最后一个值
+
+		let newFrist = fruits.unshift("Pear");//添加数组元素到头部，返回数组新的length
+
+		let newLast = fruits.push("Orange")//添加数组元素到末尾，返回数组新的length
+
+		let delLast = fruits.pop()//删除数组末尾元素，返回被删除元素
+
+		let delFirst = fruits.shift();//删除第一个元素，返回被删元素
+
+		let index = fruits.indexOf("Apple");//找到某个元素在数组中的索引
+
+		fruits.forEach(function(item,index){//遍历数组
+			console.log(item,index)//item是每一个数组值，index是每个数组的索引
+		});
+
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${fruits.length}<br/>
+			${first}<br/>
+			${last}<br/>
+			${newFrist}<br/>
+			${newLast}<br/>
+			${delLast}<br/>
+			${delFirst}<br/>
+			${index}<br/>
+			
+			`
+
+	</script>
+</body>
+</html>

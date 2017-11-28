@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-sort</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+		
+		//sort()可以对当前Array进行排序，它会直接修改当前Array的元素位置，直接调用时，按照默认顺序排序
+
+		let fruits = ["Apple","Banana","Orange","Mango","Pear"]
+		let arr = fruits.sort();
+
+		let num = [3,45,78,9,35,64,19,55]
+		let num1 = num.sort((function(a,b){return a-b}));//重写对数字排序方法
+
+
+		
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${arr}<br/>	
+			${num1}<br/>	
+		`
+
+	</script>
+</body>
+</html>

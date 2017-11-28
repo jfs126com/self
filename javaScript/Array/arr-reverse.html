@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-reverse</title>
+</head>
+<body>
+	<div id="template" style="background: #363636;color: #fff;padding: 10px"></div>
+	<script type="text/javascript">
+		
+		//reverse()把整个Array的元素给掉个个，也就是反转颠倒
+
+		let fruits = ["Apple","Banana","Orange","Mango","Pear"]
+		let arr = fruits.sort();
+		let arr1 = fruits.reverse();
+
+		let num = [3,45,78,9,35,64,19,55]
+		let num1 = num.sort((function(a,b){return a-b}));//重写对数字排序方法
+		let num2 = num1.reverse()
+
+
+		
+
+		let temp = document.querySelector("#template");
+		temp.innerHTML = `
+			${arr1}<br/>	
+			${num2}<br/>	
+		`
+
+	</script>
+</body>
+</html>

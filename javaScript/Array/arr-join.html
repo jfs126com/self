@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-splice</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		/*
+		join()它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串
+
+		*/
+
+
+		var arr = ['a','b','c','d','e','f','g','h','i','j','k']
+
+		var str = arr.join('/')
+		console.log(str)
+
+		var arr1 = [[1, 2, 3], [400, 500, 600], '-'];
+		console.log(arr1[1].join('-'))//400-500-600
+		
+		var num = arr1[1].splice(1,1)
+		console.log(num)//500
+
+
+	</script>
+</body>
+</html>
