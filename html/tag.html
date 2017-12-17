@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>tag</title>
+</head>
+<body>
+
+<!--常用内联元素-->
+
+<b>表示相对于普通文本字体上的区别</b>
+
+<code>呈现一段计算机代码. 默认情况下, 它以浏览器的默认等宽字体显示</code>
+
+<em>标记出需要用户着重阅读的内容</em>
+
+<i>用于表现因某些原因需要区分普通文本的一系列文本,通常用于图标</i>
+
+<mark>代表突出显示的文字,例如可以为了标记特定上下文中的文本而使用这个标签.</mark>
+
+<small>將使文本的字体变小一号</small>
+
+<span>短语内容的通用行内容器</span>
+
+<strong>表示文本十分重要，一般用粗体显示。</strong>
+
+<sub>展示得更低并且更小。</sub>
+
+<sup>应该展示得更高并且更小。</sup>
+
+
+<!--常用块元素-->
+
+<aside>表现为侧边栏或者嵌入内容</aside>
+
+<footer>表示最近一个章节内容或者根节点,元素的页脚</footer>
+
+<header>包含标题元素，也可以包含其他元素，像logo、分节头部、搜索表单等</header>
+
+<nav>导航栏</nav>
+
+<section>表示文档中的一个区域</section>
+
+<main>应用的主体部分</main>
+
+<div>通用型的流内容容器</div>
+
+<dl>
+  <dt>该元素仅能作为 dl 的子元素出现。</dt>
+  <dd>用来指明一个描述列表 dl 元素中一个术语的描述</dd>
+</dl>
+
+<ol>
+  <li>有序列表</li>
+</ol>
+
+<ul>
+  <li>无序列表</li>
+</ul>
+
+<p>表示文本的一个段落</p>
+
+<pre>表示预定义格式文本。在该元素中的文本通常按照原文件中的编排</pre>
+
+<h1>标题元素</h1>
+<h2>标题元素</h2>
+<h3>标题元素</h3>
+<h4>标题元素</h4>
+<h5>标题元素</h5>
+<h6>标题元素</h6>
+
+
+<!--图片和多媒体-->
+
+<map name="primary">
+  <!--HTML <map> 属性 与 <area> 属性一起使用来定义一个图像映射(一个可点击的链接区域).-->
+  <area shape="circle" coords="200,250,25" href="another.htm"/>
+  <area shape="default" nohref/>
+</map>
+
+<!--代表文档中的一个图像-->
+<img src="" alt="">
+
+<video controls>
+  <source src="sample.ogv" type="video/ogv">
+  <!--<track> 元素 被当作媒体元素—<audio> 和 <video>的子元素来使用。它允许指定计时字幕（或者基于事件的数据），例如自动处理字幕。-->
+  <track kind="metadata" src="keyStage3.srt" srclang="en" label="Key Stage 3">
+</video>
+
+<audio src="foo.ogg">
+  <track kind="captions" src="foo.en.vtt" srclang="en" label="English">
+  <source src="foo.wav" type="audio/wav">
+</audio>
+
+<!--用于表示一个外部应用或交互式内容的集合点，换句话说，就是一个插件。-->
+<embed type="video/quicktime" src="movie.mov" width="640" height="480">
+
+<!--表示引入一个外部资源，这个资源可能是一张图片，一个嵌入的浏览上下文，亦或是一个插件所使用的资源。-->
+<object data="move.swf" type="application/x-shockwave-flash">
+  <param name="foo" value="bar">
+</object>
+
+
+<!--编辑标识-->
+
+<del>表示已经从文档中删除的文本范围。此元素通常是（但不必）呈现删除线的文本。</del>
+
+<ins>ins元素定义已经被插入文档中的文本。</ins>
+
+
+<!--表格表单内容-->
+
+<table>
+  <colgroup span="4" class="columns"></colgroup>
+  <caption>Awesome caption</caption>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
+
+
+<button>表示一个可点击的按钮。</button>
+
+<label>Choose a browser from this list:
+  <input list="browsers" name="myBrowser" />
+</label>
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Internet Explorer">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+
+<form action="" method="post">
+  <fieldset>
+    <legend>Title</legend>
+    <input type="radio" name="radio" id="radio"> <label for="radio">Click me</label>
+  </fieldset>
+</form>
+
+<p>Anna's score: <meter min="0" low="40" high="90" max="100" value="95"></meter></p>
+
+<select name="select">
+  <option value="value1">Value 1</option>
+  <option value="value2" selected>Value 2</option>
+  <option value="value3">Value 3</option>
+</select>
+
+<textarea name="textarea" rows="10" cols="50">Write something here</textarea>
+</body>
+</html>
