@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>decorator</title>
+</head>
+<body>
+<script>
+  {
+    let readonly = function (target,name,descriptor) {
+      descriptor.writable = false;
+      return descriptor;
+    }
+    class Test{
+      @readonly
+      time(){
+        return '2017.12.28'
+      }
+    }
+    let test = new Test();
+    console.log(test)
+  }
+  {
+    let typename = function (target, name, descriptor) {
+      target.myname = 'snail';
+    }
+    @typename
+    class Test{
+
+    }
+    console.log(Test.myname)
+  }
+  {
+    let log = (type)=>{
+      return function (target, name, descriptor) {
+        let src_method = descriptor.value;
+        descriptor.value = (...arg)=>{
+          src_method.apply(target,arg);
+          console.info(type)
+        }
+      }
+    }
+    class AD{
+      @log('show')
+      show(){
+        console.log('show')
+      }
+      @log('click')
+      click(){
+        console.log('click')
+      }
+    }
+    let ad = new AD()
+    ad.show();
+    ad.click();
+  }
+</script>
+</body>
+</html>

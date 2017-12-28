@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>number</title>
+</head>
+<body>
+<script>
+  console.log("//0b表示16进制前缀，0o表示8进制前缀")
+  {
+    console.log(0b111010111011)
+    console.log(0o546)
+  }
+
+  console.log("//Number.isFinite() 用来检查一个数值是否为有限的")
+  {
+    console.log('10',isFinite(10))
+    console.log('NaN',isFinite(NaN))
+  }
+
+  console.log("//Number.isNaN() 用来检查一个值是否为NaN")
+  {
+    let a = 'NaN'
+    console.log('10',isNaN(10))
+    console.log('a',isNaN(a))
+  }
+
+  console.log("//Number.isInteger()用来判断一个值是否为整数")
+  {
+    console.log('25',Number.isInteger(25))
+    console.log('25.2',Number.isInteger(25.2))
+    console.log('25.00',Number.isInteger(25.00))
+    console.log('25',Number.isInteger('25'))
+  }
+
+  console.log("//Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER这两个常量，用来表示这个范围的上下限。")
+  {
+    console.log(Number.MAX_SAFE_INTEGER)
+    console.log(Number.MIN_SAFE_INTEGER)
+
+  }
+
+  console.log("//Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内。")
+  {
+    console.log('5412',Number.isSafeInteger(5412))
+    console.log('111',Number.isSafeInteger('111'))
+    console.log('15.2',Number.isSafeInteger(15.2))
+  }
+
+  console.log("//Math.trunc方法用于去除一个数的小数部分，返回整数部分。")
+  {
+    console.log("4.12",Math.trunc(4.12))
+    console.log("4.65",Math.trunc(4.65))
+  }
+
+  console.log("//Math.sign方法用来判断一个数到底是正数、负数、还是零。对于非数值，会先将其转换为数值。")
+
+  {
+    /*
+    *参数为正数，返回+1；
+    * 参数为负数，返回-1；
+    * 参数为 0，返回0；
+    * 参数为-0，返回-0;
+    * 其他值，返回NaN。
+    * */
+    console.log("10",Math.sign(10));
+    console.log("0",Math.sign(0));
+    console.log("-0",Math.sign(-0));
+    console.log("-10",Math.sign(-10));
+    console.log("true",Math.sign(true));
+    console.log("false",Math.sign(false));
+    console.log("20",Math.sign('20'));
+    console.log("asd",Math.sign('asd'));
+  }
+
+  console.log("//Math.cbrt方法用于计算一个数的立方根。")
+  {
+    console.log(Math.cbrt(9))
+    console.log(Math.cbrt(8))
+    console.log(Math.cbrt(27))
+    console.log(Math.cbrt(64))
+  }
+
+
+</script>
+</body>
+</html>

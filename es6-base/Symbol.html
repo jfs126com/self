@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>symbol</title>
+</head>
+<body>
+<script>
+  {
+    let s = Symbol(),
+      n = Number(),
+      u = undefined,
+      l = null,
+      str = String(),
+      b = Boolean(),
+      o = Object();
+    console.log(typeof s,typeof n,typeof u,typeof l,typeof str,typeof b,typeof o)
+  }
+  {
+    let s1 = Symbol(),s2 = Symbol();
+    let s3 = Symbol('foo'),s4 = Symbol('bar');
+    console.log(s1===s2)//false
+    console.log(s3===s4)//false
+  }
+  {
+    let s1 = Symbol.for`'foo'`,s2 = Symbol.for`'foo'`;
+    console.log(s1 === s2)//true
+    console.log(Symbol.keyFor(s1))//'foo'
+  }
+  {
+    let a = Symbol.for('html');
+    let obj = {
+      [a]:'文档标记',
+      css:'样式',
+      js:'行为'
+    }
+    console.log(obj);//{css: "样式", js: "行为", Symbol(html): "文档标记"}
+    for(let [key,vlaue] of Object.entries(obj)){
+     console.log(key,vlaue)//css 样式 js 行为
+    }
+    Object.getOwnPropertySymbols(obj).forEach(data=>{
+      console.log(obj[data])//css:'样式' js:'行为' 文档标记
+    })
+    Reflect.ownKeys(obj).forEach(data=> {
+      console.log(data,obj[data])
+    })
+  }
+</script>
+</body>
+</html>

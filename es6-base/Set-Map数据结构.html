@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Set-Map</title>
+</head>
+<body>
+<script>
+//Set
+  {
+    let mySet = new Set();
+    mySet.add(12);
+    mySet.add(10);
+    console.log(mySet.size)
+  }
+  {
+    let arr = ['a','b','c','d'];
+    let list = new Set(arr);
+    console.log(list.size)
+    list.add('e');
+    console.log(list.size)
+  }
+  {
+    //去掉重复
+    let arr = ['a','b','c','d','a','c'];
+    let list = new Set(arr);
+    console.log(list)
+  }
+  {
+    let arr = ['a','b','c','d','a','c'];
+    let list = new Set(arr);
+    for(let [key,value] of list.entries()){
+     console.log(key,value)
+    }
+    list.forEach(data=>{
+      console.log(data)
+    })
+  }
+  //Map
+{
+  let map = new Map();
+  let arr = ['js'];
+  map.set(arr,123);
+  console.log(map,map.get(arr))
+}
+//数据结构对比数组 增、删、改、查
+{
+  let map = new Map();
+  let set = new Set()
+  let arr = [];
+  //增
+  map.set('a',1);
+  //set.add({a:1})
+  arr.push({a:1});
+  console.log(map,arr)
+  //查
+  let map_exist = map.has('a');
+  //let set_exist = set.has({a:1});
+  let arr_exist = arr.find(item => item.a);
+  console.log(map_exist,arr_exist)
+  //改
+  map.set('a',2);
+  //set.forEach(item=>item.a?item.a=2:'')
+  arr.forEach(item=>item.a?item.a=2:'')
+  console.log(map,arr)
+  //删
+  map.delete('a');
+  //set.forEach(item=>item.a?set.delete(item):'')
+  let index = arr.findIndex(item=>item.t);
+  arr.splice(index,1);
+  console.log(map,arr)
+}
+//数据结构对比对象
+{
+  let item = {t:1};
+  let map = new Map();
+  let set = new Set();
+  let obj = {};
+  //增
+  map.set('t',1);
+  set.add(item);
+  obj['t'] = 1;
+
+  console.log(map,set,obj)
+
+  //查
+  console.info({
+    map_exist:map.has('t'),
+    set_exist:set.has(item),
+    obj_exist:'t' in obj
+  })
+  //改
+  map.set('t',2);
+  item.t = 2;
+  obj['t'] = 2;
+  console.log(map,set,obj)
+
+  //删
+  map.delete('t');
+  set.delete(item);
+  delete obj['t'];
+  console.log(map,set,obj)
+}
+</script>
+</body>
+</html>

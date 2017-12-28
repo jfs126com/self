@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>string</title>
+</head>
+<body>
+<script>
+  {
+    console.log('s','\u{20BB7}')
+  }
+  console.log('----------')
+  {
+    let s = "𠮷";
+    console.log(s.length)
+    console.log(s.codePointAt())
+    console.log(s.codePointAt().toString(16))
+  }
+  console.log('----------')
+  //codePointAt()取码值
+  {
+    let u = 'a';
+    console.log(u.codePointAt().toString(16))
+  }
+  console.log('----------')
+  //String.fromCodePoint()
+  {
+    console.log(String.fromCodePoint(0x20bb7))
+    console.log(String.fromCodePoint(0x5a))
+  }
+  console.log('----------')
+  {
+    let u = 'Z';
+    console.log(u.codePointAt().toString(16))
+  }
+  console.log('----------')
+
+  {
+    let y = '杨';
+    let v = y.codePointAt()
+    let v1 = v.toString(16)
+    console.log(v,v1)//26472,6768
+    let v2 = String.fromCodePoint('0x'+v1)
+    let v3 = String.fromCodePoint(v)
+    console.log(v2,v3)//杨，杨
+  }
+  console.log('----------')
+
+  //字符串遍历器接口 for...of...
+  {
+    let str = "\u{20bb7}abc";
+    for (let i of str){
+      console.log(i)
+    }
+  }
+  console.log('----------')
+  {
+    let str = "width=device-width";
+    let arr=[];
+    for(let i of str){
+     arr.push(i)
+    }
+    console.log(arr)
+  }
+  /*
+  * includes()：返回布尔值，表示是否找到了参数字符串。
+  * startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+  * endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+  * */
+  console.log('----------')
+  {
+    let str = "hello word";
+    console.log(str.includes(' '))
+    console.log(str.startsWith(' '))
+    console.log(str.endsWith(' '))
+  }
+  console.log('----------')
+  //repeat方法返回一个新字符串，表示将原字符串重复n次。
+  {
+    let str = "abc";
+    console.log(str.repeat(3))
+  }
+  console.log('----------')
+  //template string ``
+  {
+    let name = "snail";
+    console.log(`${name} 你好！`)
+  }
+  console.log('----------')
+  /*
+  * padStart() 用于头部补全
+  * padEnd() 用于尾部补全。
+  * */
+  {
+    console.log('1'.padStart(2,'0'))
+    console.log('1'.padEnd(2,'0'))
+  }
+  console.log('----------')
+  //标签模板
+  {
+    let total = 30;
+    let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+    function passthru(literals, ...values) {
+      let output = "";
+      let index;
+      for (index = 0; index < values.length; index++) {
+        output += literals[index] + values[index];
+      }
+
+      output += literals[index]
+      return output;
+    }
+    console.log(msg)
+
+  }
+  console.log('----------')
+  //string.raw()
+  {
+    console.log(String.raw`Hi\n${2+3}!`)
+    console.log(String.raw`Hi\u000A!`)
+  }
+</script>
+</body>
+</html>

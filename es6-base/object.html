@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>object</title>
+</head>
+<body>
+<script>
+  //简洁表达式
+  {
+    let x = 'bar',
+        y = {x};
+    console.log(y.x)//bar
+  }
+  {
+    foo = (x,y)=> {return {x,y}}
+    console.log(foo(1,2))//{x: 1, y: 2}
+  }
+  {
+    let o = {
+      foo(){
+        return 'hello'
+      }
+    }
+    console.log(o.foo())//hello
+  }
+  {
+    let birth = '2017.12.25';
+    let Person = {
+      name:'snail',
+      birth,
+      say(){
+        console.log('我的名字是:'+this.name+','+this.birth+'出生')
+      }
+    }
+    console.log(Person.say())//我的名字是:snail,2017.12.25出生
+  }
+  {
+     getPoint=()=>{
+       let x = 10;
+       let y = 20
+       return {x,y}
+     }
+     let o = getPoint();
+     console.log(o.x)//10
+  }
+  //属性表达式
+  {
+    let a = 'b';
+    let es5_obj = {
+      a:'c'
+    }
+    let es6_obj = {
+      [a]:'c'
+    }
+    console.log(es5_obj,es6_obj)//{a: "c"} {b: "c"}
+  }
+
+  {
+    //Object.is()用来比较两个值是否严格相等
+    console.log(Object.is(+0,-0));//false
+    console.log(Object.is(NaN,NaN));//true
+  }
+  {
+    let obj = {a:1};
+    let obj1 = {b:2};
+    let obj2 = {c:3};
+    Object.assign(obj,obj1,obj2)
+    console.log(obj)//{a: 1, b: 2, c: 3}
+    console.log(typeof obj === 'object')//true
+    console.log(Object.is(typeof(obj),'object'))//true
+  }
+  {
+    let obj = {a:1};
+    Object.assign(obj,undefined)
+    Object.assign(obj,null)
+    console.log(obj)//{a:1}
+
+    //console.log(Object.assign(undefined))//类型错误
+    //console.log(Object.assign(null))//类型错误
+  }
+  {
+    //对象添加属性与方法
+    class Point{
+      constructor(x,y){
+        Object.assign(this,{x,y});
+        Object.assign(Point.prototype,{
+          asy(){
+            console.log('hello')
+          }
+        })
+      }
+    }
+    let point = new Point();
+    console.log(new Point(1,2))//Point {x: 1, y: 2}
+    console.log(point.asy());//hello
+  }
+  {
+    //克隆对象
+    let obj = {a:11}
+    function clone(origin) {
+      let originProto = Object.getPrototypeOf(origin);
+      return Object.assign(Object.create(originProto),origin)
+    }
+    console.log(clone(obj))
+  }
+  {
+    let {keys, values, entries} = Object;
+    let obj = {a:11,b:20,c:45,d:26};
+    for(let [key,val] of entries(obj)){
+     console.log(key+'='+val)
+    }
+
+  }
+
+//扩展运算符
+  {
+    let {a,b,...e} = {a:1,b:2,c:3,d:4}
+    console.log(a,b,e)
+  }
+</script>
+</body>
+</html>

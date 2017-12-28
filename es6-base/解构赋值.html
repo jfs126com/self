@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>解构赋值</title>
+</head>
+<body>
+<script>
+  //数组解构赋值
+  {
+    let a,b;
+    [a,b] = [1,2]
+    console.log(a,b)
+  }
+  {
+    let a,b,rest;
+    [a,b,...rest] = [1,2,3,4,5,6]
+    console.log(a,b,rest)
+  }
+
+
+//对象解构赋值
+  {
+    let a,b;
+    ({a,b} = {a:1,b:2})
+    console.log(a,b)
+  }
+
+  //变量的交换
+  {
+    let a = 10;
+    let b = 50;
+    [a,b] = [b,a];
+    console.log(a,b)
+  }
+  {
+    function fun() {
+      return {a:5,b:10}
+    }
+    let a,b;
+    ({a,b} = fun())
+    console.log(a,b)
+  }
+  {
+    function fun() {
+      return [1,2,3,4,5,6]
+    }
+    let a,b;
+    [a,,,b] = fun()
+    console.log(a,b)
+  }
+  {
+    function fun() {
+      return [1,2,3,4,5,6]
+    }
+    let a,b;
+    [a,...b] = fun()
+    console.log(a,b)
+  }
+
+  //object
+  {
+    let o = {
+      a:'snail',
+      b:false
+    }
+    let {a,b}=o;
+    console.log(a,b)
+  }
+
+
+  {
+    let date = {
+      title:'head',
+      test:[{
+        title:'childHead',
+        desc:'decrease'
+      }]
+    }
+    let {
+      title:esTitle,
+      test:[{
+        title:cnTitle,
+        desc:dec
+      }]} = date;
+    console.log(esTitle,cnTitle,dec)
+  }
+</script>
+</body>
+</html>

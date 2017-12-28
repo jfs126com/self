@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>class</title>
+</head>
+<body>
+<script>
+  {
+    //基本定义和生成实例
+    class Parent{
+      constructor(name='snail'){
+        this.name = name;
+      }
+    }
+    let par = new Parent('yang');
+    console.log(par)//{name: "yang"}
+  }
+  {
+    //继承
+    class Parent{
+      constructor(name='snail'){
+        this.name = name;
+      }
+    }
+    class Child extends Parent{
+
+    }
+    let child = new Child()
+    console.log(child)//{name: "snail"}
+  }
+  {
+    //继承传递参数
+    class Parent{
+      constructor(name='snail'){
+        this.name = name;
+      }
+    }
+    class Child extends Parent{
+      constructor(name='wei'){
+        super(name)
+        this.type='string'
+      }
+    }
+    let child = new Child()
+    console.log(child)//{name: "wei", type: "string"}
+  }
+  {
+    //getter、setter
+    class Parent{
+      constructor(name='snail'){
+        this.name = name;
+      }
+      //longName是属性
+      get longName(){
+        return '姓名:'+this.name
+      }
+      set longName(value){
+        this.name = value
+      }
+    }
+    let v = new Parent()
+    console.log(v.longName)//姓名:snail
+    v.longName = 'yahu'
+    console.log(v.longName)//姓名:yahu
+  }
+  {
+    //静态方法
+    class Parent{
+      constructor(name='snail'){
+        this.name = name;
+      }
+      static tall(){
+        console.log('static')
+      }
+    }
+    //静态方法是类调用不是实例调用
+    Parent.tall()//static
+    //静态属性
+    Parent.attribute = 'attr';
+    console.log(Parent.attribute)//attr
+  }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

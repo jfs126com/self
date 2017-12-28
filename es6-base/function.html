@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+<script>
+  {
+    function test(a,b='word') {
+      console.log(a,b)
+    }
+    test('hello')
+    test('hello','snail')
+  }
+  {
+    let t = 'test';
+    function fun(t, x = t) {
+      console.log(t,x)
+    }
+    fun(t)
+    fun(t,'hello')
+  }
+  {
+    let t = 'test';
+    function fun(x, y = t) {
+      console.log(x,y)
+    }
+    fun('day')
+  }
+  {
+    fun = (...arg)=>{
+      for(let i of arg){
+       console.log(i)
+      }
+    }
+    fun(['a','b','c','d'])
+  }
+  {
+    //伪调用函数，提高性能
+    function tal(x) {
+      console.log('tal',x);
+    }
+    function fx(x) {
+      return tal(x);
+    }
+    fx(145);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>generator</title>
+</head>
+<body>
+<script>
+  {
+    //generator的基本定义
+    let tell = function* () {
+      yield 'a';
+      yield 'b';
+      return 'c';
+    };
+    let k=tell();
+    console.log(k.next())
+    console.log(k.next())
+    console.log(k.next())
+  }
+  {
+    let obj={};
+    obj[Symbol.iterator] = function*(){
+      yield 'html';
+      yield 'css';
+      yield 'javascript';
+    }
+    for(let i of obj){
+      console.log(i)
+    }
+  }
+  {
+    //抽奖实例
+    let draw = count=>{
+      //...具体的抽奖逻辑
+      console.log(`剩余${count}次`)
+    }
+    let residue = function*(count){
+      while (count>0){
+        count--;
+        yield draw(count)
+      }
+    }
+    let star = residue(5)
+    let btn = document.createElement('button');
+    btn.id='star';
+    btn.textContent='抽奖';
+    document.body.appendChild(btn);
+    document.querySelector('#star').addEventListener('click',function () {
+      star.next()
+    },false)
+  }
+
+  {
+    //长轮询
+    let ajax = function*(){
+      yield new Promise((resolve,reject)=>{
+        setTimeout(function () {
+          resolve({code:0})
+        },200)
+      })
+    }
+    let pull = ()=>{
+      let generator = ajax();
+      let step = generator.next();
+      step.value.then(d=>{
+        if(d.code != 0){
+          setTimeout(function () {
+            console.log('wait')
+            pull()
+          },1000)
+        }else{
+          console.log(d)
+        }
+      })
+    }
+    pull()
+  }
+</script>
+</body>
+</html>

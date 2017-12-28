@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>正则表达式</title>
+</head>
+<body>
+<script>
+  //es5
+  {
+    let reg = new RegExp('abc','i');
+    let reg1 = new RegExp(/abc/i);
+    console.log(reg.test('abcdv546'),reg1.test('4545abc456'))
+  }
+  console.log('----------')
+  //es6
+  {
+    let reg = new RegExp(/abc/ig,'i')
+    console.log(reg.flags)//flags返回正则表达式的修饰符
+  }
+  console.log('----------')
+  {
+    let s = 'bbb_bb_b';
+    let a1 = /b+/g;
+    let a2 = /b+/y;
+    console.log('one',a1.exec(s),a2.exec(s))
+    console.log('two',a1.exec(s),a2.exec(s))
+    console.log(a1.sticky,a2.sticky)//sticky判断y修饰符的存在
+  }
+  console.log('----------')
+  {
+    let s = '𠮷';
+
+    console.log(/^.$/.test(s)) // false
+    console.log(/^.$/u.test(s)) // true
+  }
+  console.log('----------')
+  //unicode
+  {
+    console.log(/\u{61}/.test('a'))
+    console.log(/\u{61}/u.test('a'))
+  }
+</script>
+</body>
+</html>
